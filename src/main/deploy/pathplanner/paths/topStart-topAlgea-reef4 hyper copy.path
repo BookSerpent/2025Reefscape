@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 8.0,
-        "y": 7.555
+        "x": 7.868250000000001,
+        "y": 7.554499999999999
       },
       "prevControl": null,
       "nextControl": {
-        "x": 8.803284618150315,
-        "y": 7.758130137418444
+        "x": 8.671534618150314,
+        "y": 7.7576301374184435
       },
       "isLocked": false,
       "linkedName": "TopWallStart"
     },
     {
       "anchor": {
-        "x": 1.783,
-        "y": 5.85
+        "x": 8.151639344262295,
+        "y": 1.5555327868852453
       },
       "prevControl": {
-        "x": 2.18459870418751,
-        "y": 6.715261544759887
+        "x": 8.553238048449806,
+        "y": 2.420794331645132
       },
       "nextControl": {
-        "x": 1.602992125984252,
-        "y": 5.4621653543307085
+        "x": 7.971631470246547,
+        "y": 1.167698141215954
       },
       "isLocked": false,
       "linkedName": "TopAlgea"
@@ -89,7 +89,7 @@
   "folder": "Hyper",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 0.0
   },
   "useDefaultConstraints": true
 }

@@ -5,12 +5,15 @@
   "pathFolders": [
     "1",
     "Hyper",
+    "Routes we use",
     "dealgeanating routes",
     "processer end",
     "processer start",
-    "start"
+    "start",
+    "test"
   ],
   "autoFolders": [
+    "Test",
     "bottom start, two algae",
     "mildly usefull at best",
     "top start, 2 algae"

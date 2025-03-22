@@ -17,6 +17,7 @@ public class PivotIntakeToAngle extends Command {
     );
 
     double targetAngle;
+    int debounce;
 
     public PivotIntakeToAngle(IntakeSubsystem intakeSubsystem, IntakePosition intakePosition) {
         this.intakeSubsystem = intakeSubsystem;
@@ -26,26 +27,41 @@ public class PivotIntakeToAngle extends Command {
 
     @Override
     public void initialize() {
-        if (intakeSubsystem.getPivotAngle() < targetAngle) {
-            controller.setP(Constants.INTAKE_PIVOT_DOWN_P);
-        } else {
-            controller.setP(Constants.INTAKE_PIVOT_UP_P);
-        }
+        debounce = 0;
+        // if (intakeSubsystem.getPivotAngle() < targetAngle) {
+        //     controller.setP(Constants.INTAKE_PIVOT_DOWN_P);
+        // } else {
+        //     controller.setP(Constants.INTAKE_PIVOT_UP_P);
+        //If going to dealgaenating, try not to slam into robot too hard
+        // if (Double.compare(targetAngle, IntakePosition.DEALGAENATING.getPivotAngleRotations()) == 0) {
+        //     controller.setP(Constants.INTAKE_GOING_UP_TO_DEALGEANATE);
+        // }
+        // }
 
-        controller.setTolerance(0.25);
+        controller.setP(Constants.INTAKE_PIVOT_DOWN_P);
+
+        controller.setTolerance(0.008);
         controller.setSetpoint(targetAngle);
+
+        System.out.println("START GOING TO " + targetAngle + " with p " + controller.getP());
     }
 
     @Override
     public void execute() {
         double calcValue = controller.calculate(intakeSubsystem.getPivotAngle());
+        System.out.println("Motor spinning at " + intakeSubsystem.getMotorSpeed());
+        System.out.println("going to " + controller.getSetpoint() + " at speed of " + calcValue);
         intakeSubsystem.movePivot(calcValue);
-        System.out.println(calcValue);
+        if (controller.atSetpoint()) {
+            debounce++;
+        } else {
+            debounce = 0;
+        }
     }
 
     @Override
     public boolean isFinished() {
-        return controller.atSetpoint();
+        return debounce >= 25;
     }
 
     @Override

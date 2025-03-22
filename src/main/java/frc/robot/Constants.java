@@ -31,16 +31,17 @@ public final class Constants {
     public static final double INTAKE_SPEED = 1;
     public static final double OUTTAKE_SPEED = 1;
 
-    public static final double INTAKE_PIVOT_DOWN_P = 0.02;
-    public static final double INTAKE_PIVOT_UP_P = 0.4;
-    public static final double INTAKE_PIVOT_I = 0.05;
-    public static final double INTAKE_PIVOT_D = 0.002;
+    // public static final double INTAKE_GOING_UP_TO_DEALGEANATE = 2.25;
+    public static final double INTAKE_PIVOT_DOWN_P = 5;
+    // public static final double INTAKE_PIVOT_UP_P = 10;
+    public static final double INTAKE_PIVOT_I = 1;
+    public static final double INTAKE_PIVOT_D = 0.5;
 
     public static final double CLIMB_P = 0.08;
     public static final double CLIMB_I = 0;
     public static final double CLIMB_D = 0;
 
-    public static final double DEALGAENATOR_P = 0.7;
+    public static final double DEALGAENATOR_P = 0.85;
     public static final double DEALGAENATOR_I = 0.02;
     public static final double DEALGAENATOR_D = 0;
 
@@ -65,6 +66,7 @@ public final class Constants {
         public static final double DEADBAND = 0.1;
         public static final double LEFT_Y_DEADBAND = 0.1;
         public static final double RIGHT_X_DEADBAND = 0.1;
+        public static final double JOYSTICK_FLOOR = 0.3;
         public static final double TURN_CONSTANT = 6;
     }
 }
